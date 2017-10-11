@@ -96,7 +96,8 @@ public class UtilTest {
                 new Person("Duke", 10),
                 new Person("Fred", 28),
                 new Person("John", 45),
-                new Person("Marius", 17));
+                new Person("Marius", 17),
+        		new Person("Susi", 18));
 
         List<String> result = Util.filterPeopleLessThan18YearsOld(input);
         assertThat(result, contains("Duke", "Marius"));
@@ -122,11 +123,12 @@ public class UtilTest {
         Person duke = new Person("Duke", 10);
         Person fred = new Person("Fred", 28);
         Person john = new Person("John", 45);
-        List<Person> input = asList(duke, fred, john);
+        Person susi = new Person("Susi", 18);
+        List<Person> input = asList(duke, fred, john, susi);
 
         Map<Boolean, List<Person>> result = Util.partitionAdults(input);
 
-        assertThat(result.get(true), containsInAnyOrder(fred, john));
+        assertThat(result.get(true), containsInAnyOrder(fred, john, susi));
         assertThat(result.get(false), containsInAnyOrder(duke));
     }
 
