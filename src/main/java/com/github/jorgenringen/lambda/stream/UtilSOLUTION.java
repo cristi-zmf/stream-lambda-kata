@@ -48,6 +48,7 @@ public class Util {
     public static List<Integer> sortIntegersDescending(List<String> input) {
     	return input.stream()
     			.map(Integer::valueOf)
+//    			.map(s -> Integer.valueOf(s))
     			.sorted(Comparator.reverseOrder())
     			.collect(Collectors.toList());
     }
