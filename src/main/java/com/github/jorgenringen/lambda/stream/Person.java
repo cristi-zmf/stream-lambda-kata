@@ -1,5 +1,8 @@
 package com.github.jorgenringen.lambda.stream;
 
+import lombok.ToString;
+
+@ToString
 public class Person {
 
     private String name;
