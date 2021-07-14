@@ -5,6 +5,7 @@ import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import java.util.IntSummaryStatistics;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class Util {
 
@@ -15,7 +16,10 @@ public class Util {
         throw new NotImplementedException();    }
 
     public static List<String> sortStrings(List<String> input) {
-        throw new NotImplementedException();    }
+        return input.stream()
+                .sorted()
+                .collect(Collectors.toList());
+    }
 
     public static List<Integer> sortIntegers(List<String> input) {
         throw new NotImplementedException();    }
@@ -29,9 +33,12 @@ public class Util {
     public static List<String> flattenToSingleCollection(List<List<String>> input) {
         throw new NotImplementedException();
     }
-
     public static String separateNamesByComma(List<Person> input) {
-        throw new NotImplementedException();    }
+        return "Names: " + input.stream()
+                .map(person -> person.getName())
+                .collect(Collectors.joining(", ")) + ".";
+
+    }
 
     public static String findNameOfOldestPerson(List<Person> input) {
         throw new NotImplementedException();    }
